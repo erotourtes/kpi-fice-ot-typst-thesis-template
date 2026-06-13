@@ -10,7 +10,17 @@
 #import "heading.typ": heading_config
 #import "theme.typ": code, figure_caption_rules
 
-#let todo(body: [todo]) = highlight(text(fill: red, weight: "bold")[#body])
+#let todo(body) = {
+  let content = if body == [] {
+    [todo]
+  } else {
+    body
+  }
+
+  highlight[
+    #text(fill: red, weight: "bold")[#content]
+  ]
+}
 
 
 #let thesis_template(
